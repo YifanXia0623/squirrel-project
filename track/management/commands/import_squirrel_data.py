@@ -5,9 +5,12 @@ from django.core.management.base import BaseCommand
 from track.models import SquirrelDetail
 
 class Command(BaseCommand):
-    help = 'Provide complete information of squirrel sighting'
+    help = 'Import datafile on squirrel sighting'
 
-    def import(self, *args, **options):
+    def add_arguments(self, parser):
+        parser.add_argument('squirrel_census_data', help='file containing squirrel details')
+
+    def handle(self, *args, **options):
         file_ = options['squirrel_census_data']
 
         with open(file_) as fp:
