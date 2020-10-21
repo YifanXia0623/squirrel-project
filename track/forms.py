@@ -4,7 +4,7 @@ from .models import SquirrelDetail
 
 class SightingForm(ModelForm):
     class Meta:
-        model = SquirrelDetail
+        model = Sighting
         fields = [
             'Latitude',
             'Longitude',
