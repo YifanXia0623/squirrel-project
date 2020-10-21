@@ -38,7 +38,7 @@ class SquirrelDetail(models.Model):
     ]
 
 
-    shift = models.CharField(
+    Shift = models.CharField(
         max_length=5,
         help_text=_('Shift of Sighting'),
         chioces = SHIFT_CHOIcES
@@ -46,7 +46,7 @@ class SquirrelDetail(models.Model):
     )       
 
 
-    date = models.DateField(
+    Date = models.DateField(
         help_text = _('Date of Sighting'),        
     )
 
