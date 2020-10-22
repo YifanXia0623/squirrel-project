@@ -21,10 +21,20 @@ class Sighting(models.Model):
         help_text=_('Unique ID of Squirrel'),
     )
 
+    JUVENILE = 'Juvenile'
+    ADULT = 'Adult'
+
+    
+    AGE_CHOICES = [
+        (JUVENILE, _('Juvenile')),
+        (ADULT, _('Adult')),
+    ]
 
     Age = models.CharField(
         max_length=15,
         help_text=_('Age of Squirrel'),
+        choices=AGE_CHOICES,
+        default=ADULT,
     )
 
 
