@@ -1,18 +1,18 @@
 from django.db import models
 from django.utils.translation import gettext as _
 
-class SquirrelDetail(models.Model):
+class Sighting(models.Model):
     Latitude = models.DecimalField(
         max_digits = 100,
-        decimal_places = 20,
-        help_text=_('Name of Squirrel'),
+        decimal_places = 8,
+        help_text=_('Latitude of Squirrel'),
     )    
 
 
     Longtitude = models.DecimalField(
         max_digits = 100,
-        decimal_places = 20
-        help_text=_('Name of Squirrel'),
+        decimal_places = 8,
+        help_text=_('Longitude of Squirrel'),
     )
 
 
@@ -21,7 +21,6 @@ class SquirrelDetail(models.Model):
         help_text=_('Unique ID of Squirrel'),
         unique = True,
     )
-
 
 
     Adult = 'Adult'
@@ -42,14 +41,12 @@ class SquirrelDetail(models.Model):
         )
 
 
-
-
     AM = 'AM'
     PM = 'PM'
 
     SHIFT_CHOICES = [
-        (AM,_('AM'),
-         PM,_('PM')),        
+        (AM, _('AM')),
+        (PM, _('PM')),        
     ]
 
 
@@ -65,10 +62,15 @@ class SquirrelDetail(models.Model):
         help_text = _('Date of Sighting'),        
     )
 
-    
-    Squirrel_Image = mdoels.ImageField(
+
+    Squirrel_Image = models.ImageField(
         help_text = _('Image of Squirrel'),
         blank = True,
         upload_to = 'Profiles_Images'
     )
+
+    def __str__(self):
+        return self.Unique_Squirrel_ID
+    
+    
 

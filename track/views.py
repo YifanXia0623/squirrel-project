@@ -4,14 +4,10 @@ from django.db.models import Max, Min, Count, Avg
 from .mdoels import Sighting
 from .forms import SightingForm
 
-def index(request):
-    return render(request, 'track/index.html', {})
+
 
 def map(request):
     return render(request, 'track/map.html', {})
-
-def list_sightings(request):
-    return render(request, 'track/sightings.html', {})
 
 def update_sighting(request,):
     return render(request, 'track/update.html', {})
@@ -28,3 +24,13 @@ def obtain_stats(request):
                'average number of squirrels per hectare':avg_hectare_squirrel_num,
             }
     return render(request, 'track/stats.html', content)
+
+def list_sightings(request):
+    sighting = Sighting.objects.all()
+    context = {
+            'sighting': sighting,
+    }
+    return render(request, 'track/index.html', context)
+
+def index(request):
+    return HttpResponse("Index Page")

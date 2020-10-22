@@ -1,5 +1,7 @@
 from django.apps import AppConfig
 
 
-class SquirrelConfig(AppConfig):
-    name = 'Squirrel'
+class TrackConfig(AppConfig):
+    name = 'track'
+    verbose_name = 'Squirrel Tracker'
+

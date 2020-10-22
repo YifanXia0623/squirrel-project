@@ -1,7 +1,7 @@
 from django.contrib import admin
 
-from .models import SquirrelDetail
+from .models import Sighting
 
-admin.site.register(SquirrelDetail)
+admin.site.register(Sighting)
 
 # Register your models here.
