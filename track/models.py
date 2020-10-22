@@ -4,14 +4,14 @@ from django.utils.translation import gettext as _
 class Sighting(models.Model):
     Latitude = models.DecimalField(
         max_digits = 100,
-        decimal_places = 20,
+        decimal_places = 8,
         help_text=_('Latitude of Squirrel'),
     )    
 
 
     Longtitude = models.DecimalField(
         max_digits = 100,
-        decimal_places = 20,
+        decimal_places = 8,
         help_text=_('Longitude of Squirrel'),
     )
 
@@ -67,7 +67,8 @@ class Sighting(models.Model):
         upload_to = 'Profiles_Images'
     )
 
-
+    def __str__(self):
+        return self.Unique_Squirrel_ID
     
     
 
