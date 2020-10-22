@@ -19,18 +19,33 @@ class SquirrelDetail(models.Model):
     Unique_Squirrel_ID = models.CharField(
         max_length=15,
         help_text=_('Unique ID of Squirrel'),
+        unique = True,
     )
 
+
+
+    Adult = 'Adult'
+    Juvenile = 'Juvenile'
+    Unknown = '?'
+
+    AGE_CHOICES = [
+        (Adult, 'Adult'),
+        (Juvenile, 'Juvenile'),
+        (Unknown, '?'),
+    ]
 
     Age = models.CharField(
         max_length=15,
         help_text=_('Age of Squirrel'),
-    )
+        choices = AGE_CHOICES,
+        blank = True,
+        )
+
+
 
 
     AM = 'AM'
     PM = 'PM'
-
 
     SHIFT_CHOICES = [
         (AM,_('AM'),
@@ -40,7 +55,7 @@ class SquirrelDetail(models.Model):
 
     Shift = models.CharField(
         max_length=5,
-        help_text=_('Shift of Sighting'),
+        help_text=_('Shift of Sighting(AM or PM)'),
         chioces = SHIFT_CHOIcES
         default = AM,
     )       
