@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.gis.db  import models as geomodels
 from django.utils.translation import gettext as _
 
 class Sighting(models.Model):
@@ -12,7 +11,7 @@ class Sighting(models.Model):
 
     Longtitude = models.DecimalField(
         max_digits = 100,
-        decimal_places = 20
+        decimal_places = 20,
         help_text=_('Longitude of Squirrel'),
     )
 
@@ -34,15 +33,15 @@ class Sighting(models.Model):
 
 
     SHIFT_CHOICES = [
-        (AM,_('AM'),
-         PM,_('PM')),        
+        (AM, _('AM')),
+        (PM, _('PM')),        
     ]
 
 
     Shift = models.CharField(
         max_length=5,
         help_text=_('Shift of Sighting'),
-        choices = SHIFT_CHOICES
+        choices = SHIFT_CHOICES,
         default = AM,
     )       
 
@@ -50,6 +49,7 @@ class Sighting(models.Model):
     Date = models.DateField(
         help_text = _('Date of Sighting'),        
     )
+
 
     Squirrel_Image = models.ImageField(
         help_text = _('Image of Squirrel'),
