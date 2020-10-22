@@ -18,8 +18,8 @@ class Command(BaseCommand):
 
             for item in reader:
                 obj = Sighting() 
-                obj.latitude = item['Latitude']
-                obj.longitude = item['Longitude']
+                obj.latitude = item['X']
+                obj.longitude = item['Y']
                 obj.unique_squirrel_id = item['Unique Squirrel ID']
                 obj.shift = item['Shift']
                 obj.date = item['Date']

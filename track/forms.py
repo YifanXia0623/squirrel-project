@@ -1,16 +1,15 @@
 from django.forms import ModelForm
-from .models import SquirrelDetail 
+from .models import Sighting 
 
 
 class SightingForm(ModelForm):
     class Meta:
         model = Sighting
         fields = [
-            'Latitude',
+            'latitude',
             'Longitude',
             'Unique_Squirrel_ID',
-            'Age'
             'Shift',
+            'Age',
             'Date',
-            'Squirrel_Image'
         ]

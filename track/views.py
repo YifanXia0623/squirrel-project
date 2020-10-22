@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.db.models import Max, Min, Count, Avg
-from .mdoels import Sighting
+from .models import Sighting
 from .forms import SightingForm
 
 
@@ -19,7 +19,8 @@ def obtain_stats(request):
     squirrels = Sighting.objects.all()
     total = len(squirrels)
     avg_hectare_squirrel_num = squirrels.aggregate(Avg('Hectare Squirrel Number')).values()[0] 
-
+    num_juve = len(squirrels.filter(age='Juvenile'))
+    num_adult = len(squirrels.filter(age='Adult'))
     content = {'total number of squrrels':total,
                'average number of squirrels per hectare':avg_hectare_squirrel_num,
             }

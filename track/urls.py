@@ -6,11 +6,10 @@ from . import views
 app_name = 'track'
 
 urlpatterns = [
-        path('', views.index,name='index')
+        path('', views.index,name='index'),
         path('map/', views.map, name='map'),
         path('sightings/', views.list_sightings, name='list'),
-        path('sighting/<str:unique_squirrel_id>/', views.update_sighting, name='update'),
+        path('sightings/<unique_squirrel_id>/', views.update_sighting, name='update'),
         path('sightings/add/', views.create_sighting, name='create'),
         path('sightings/stats/', views.obtain_stats, name='stats'),
-
 ]
