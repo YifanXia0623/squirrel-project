@@ -11,19 +11,19 @@ from django.views.generic.edit import CreateView, DeleteView
 
 
 def map(request):
-    sightings = Sighting.objects.all()[:100]
-    context = {'sightings': sightings}
+    sighting = Sighting.objects.all()[:100]
+    context = {'sighting': sighting}
     return render(request, 'track/map.html',context)
 
 
 #unique id
-def update_sighting(request,Unique_Squirrel_ID):
-    squirrel = get_object_or_404(Sighting, Unique_Squirrel_ID=Unique_Squirrel_ID)
+def update_sighting(request,unique_squirrel_id):
+    squirrel = get_object_or_404(Sighting, unique_squirrel_id=unique_squirrel_id)
     form = SightingForm(request.POST or None, instance=squirrel)
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect(reverse('track:Sighting'))
-    return render(request, 'track/update.html', {})
+        return HttpResponseRedirect(reverse('track:list_sightings'))
+    return render(request, 'track/update.html', {'form':form})
 
 
 #add
@@ -33,7 +33,7 @@ def create_sighting(request):
         form = SightingForm(request.POST)
         if form.is_valid():
             squirrel = form.save()
-            return HttpResponseRedirect(reverse('track:Sighting'))
+            return HttpResponseRedirect(reverse('track:list_sightings'))
     else:
         form = SightingForm()        
     return render(request, 'track/add.html', {'form': form,'squirrel':squirrel})
@@ -61,7 +61,7 @@ def list_sightings(request):
     context = {
             'sighting': sighting,
     }
-    return render(request, 'track/index.html', context)
+    return render(request, 'track/sighting.html', context)
 
 def index(request):
     return HttpResponse("Index Page")

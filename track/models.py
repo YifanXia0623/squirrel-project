@@ -12,7 +12,7 @@ class Sighting(models.Model):
     )
 
 
-    Unique_Squirrel_ID = models.CharField(
+    unique_squirrel_id = models.CharField(
         max_length=15,
         help_text=_('Unique ID of Squirrel'),
         unique = True,

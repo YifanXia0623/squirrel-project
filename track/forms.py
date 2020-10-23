@@ -8,7 +8,7 @@ class SightingForm(ModelForm):
         fields = [
             'latitude',
             'Longitude',
-            'Unique_Squirrel_ID',
+            'unique_squirrel_id',
             'Shift',
             'Age',
             'Date',
