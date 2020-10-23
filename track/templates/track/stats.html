@@ -1,0 +1,37 @@
+{% extends 'squirrel/base.html' %}
+
+{% load static %}
+
+{% block title %}Statistics of Observed Squirrels in Central Park{% endblock %}
+
+{% block main %}
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div>
+            <div class="card mb-3 shadow-sm">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="card mb-8 shadow-sm">
+            <div class="card-body">
+              <p class="card-text">
+	      <style> h1 {font-weight: bold; font-size: 20px; text-align: center;} </style>
+	      <h1> Squirrels Stats (Central Park) </h1>
+	      	<br>
+	        <li>There are total {{total}} squirrel sightings in Central Park</li>
+		<li>Including {{total_adult}} adult squirrels and {{total_juve}} juvenile squirrels</li>
+		<br>
+		<li>On average there are {{avg_hectare_squirrel_num}} squirrels per hectare</li>
+      		<br>
+      		<li>The most common fur color is {{fur_color}}</li>
+	      </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
