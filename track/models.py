@@ -7,7 +7,7 @@ class Sighting(models.Model):
     )    
 
 
-    Longitude = models.FloatField(
+    longitude = models.FloatField(
         help_text=_('Longitude of Squirrel'),
     )
 
@@ -58,7 +58,7 @@ class Sighting(models.Model):
 
 
     def __str__(self):
-        return self.Unique_Squirrel_ID
+        return self.unique_squirrel_id
     
     
 
